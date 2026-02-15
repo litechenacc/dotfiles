@@ -2,6 +2,19 @@
 set -euo pipefail
 
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.local/dotfiles}"
+MAPPING_FILE="$DOTFILES_DIR/mapping.toml"
+
+expand_home_path() {
+    local path="$1"
+
+    if [[ "$path" == "~" ]]; then
+        printf '%s\n' "$HOME"
+    elif [[ "$path" == "~/"* ]]; then
+        printf '%s\n' "$HOME/${path#~/}"
+    else
+        printf '%s\n' "$path"
+    fi
+}
 
 ensure_aqua() {
     if command -v aqua >/dev/null 2>&1; then
@@ -27,6 +40,11 @@ link_item() {
     local src="$1"
     local dst="$2"
 
+    if [[ ! -e "$src" && ! -L "$src" ]]; then
+        echo "source does not exist: $src" >&2
+        return 1
+    fi
+
     mkdir -p "$(dirname "$dst")"
 
     if [[ -L "$dst" ]]; then
@@ -50,15 +68,43 @@ ensure_dir() {
     mkdir -p "$path"
 }
 
-link_item "$DOTFILES_DIR/bash/.bashrc" "$HOME/.bashrc"
-link_item "$DOTFILES_DIR/bash/.bash_aliases" "$HOME/.bash_aliases"
-link_item "$DOTFILES_DIR/niri/.config/niri" "$HOME/.config/niri"
-link_item "$DOTFILES_DIR/nvim/.config/nvim" "$HOME/.config/nvim"
-link_item "$DOTFILES_DIR/noctalia/.config/noctalia" "$HOME/.config/noctalia"
-ensure_dir "$HOME/.config/opencode"
-link_item "$DOTFILES_DIR/opencode/.config/opencode/global-AGENTS.md" "$HOME/.config/opencode/AGENTS.md"
-link_item "$DOTFILES_DIR/opencode/.config/opencode/skills" "$HOME/.config/opencode/skills"
-link_item "$DOTFILES_DIR/aqua/.config/aquaproj-aqua/aqua.yaml" "$HOME/.config/aquaproj-aqua/aqua.yaml"
+apply_mapping() {
+    if [[ ! -f "$MAPPING_FILE" ]]; then
+        echo "mapping file not found: $MAPPING_FILE" >&2
+        return 1
+    fi
+
+    while IFS=$'\t' read -r kind first second; do
+        case "$kind" in
+            DIR)
+                ensure_dir "$(expand_home_path "$first")"
+                ;;
+            LINK)
+                link_item "$DOTFILES_DIR/$first" "$(expand_home_path "$second")"
+                ;;
+            *)
+                echo "unknown mapping entry: $kind" >&2
+                return 1
+                ;;
+        esac
+    done < <(
+        python - "$MAPPING_FILE" <<'PY'
+import sys
+import tomllib
+
+with open(sys.argv[1], "rb") as f:
+    data = tomllib.load(f)
+
+for entry in data.get("dirs", []):
+    print(f"DIR\t{entry['path']}")
+
+for entry in data.get("links", []):
+    print(f"LINK\t{entry['source']}\t{entry['target']}")
+PY
+    )
+}
+
+apply_mapping
 
 ensure_aqua
 install_aqua_packages

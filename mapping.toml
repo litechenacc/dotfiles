@@ -1,0 +1,34 @@
+[[dirs]]
+path = "~/.config/opencode"
+
+[[links]]
+source = "bash/.bashrc"
+target = "~/.bashrc"
+
+[[links]]
+source = "bash/.bash_aliases"
+target = "~/.bash_aliases"
+
+[[links]]
+source = "niri/.config/niri"
+target = "~/.config/niri"
+
+[[links]]
+source = "nvim/.config/nvim"
+target = "~/.config/nvim"
+
+[[links]]
+source = "noctalia/.config/noctalia"
+target = "~/.config/noctalia"
+
+[[links]]
+source = "opencode/.config/opencode/global-AGENTS.md"
+target = "~/.config/opencode/AGENTS.md"
+
+[[links]]
+source = "opencode/.config/opencode/skills"
+target = "~/.config/opencode/skills"
+
+[[links]]
+source = "aqua/.config/aquaproj-aqua/aqua.yaml"
+target = "~/.config/aquaproj-aqua/aqua.yaml"

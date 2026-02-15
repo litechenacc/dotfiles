@@ -10,6 +10,7 @@ This repository stores system setup as symlinks from `$HOME` to files in this di
 - `noctalia/` -> Noctalia config (`.config/noctalia`)
 - `opencode/` -> OpenCode managed files (`global-AGENTS.md` -> `.config/opencode/AGENTS.md`, `skills/` -> `.config/opencode/skills`)
 - `aqua/` -> global aqua config (`.config/aquaproj-aqua/aqua.yaml`)
+- `mapping.toml` -> link source/target mapping used by `scripts/link.sh`
 - `scripts/link.sh` -> recreate symlinks
 
 ## Re-link everything
@@ -21,3 +22,5 @@ This repository stores system setup as symlinks from `$HOME` to files in this di
 If a destination already exists and is not a symlink, it is moved to `*.bak.<timestamp>` first.
 
 `link.sh` also bootstraps `aqua` (if missing) and installs packages from `aqua/.config/aquaproj-aqua/aqua.yaml`.
+
+All home/config path mapping is defined in `mapping.toml`.
