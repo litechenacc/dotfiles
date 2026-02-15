@@ -1,0 +1,14 @@
+alias ls='eza --icons=always'
+alias la='eza --icons=always -a'
+alias ll='eza --icons=always -al'
+
+alias vi='nvim'
+alias vim='nvim'
+alias nv='nvim'
+alias oc='opencode'
+alias y='yazi'
+
+alias vi.='vi .'
+alias nvim.='nvim .'
+alias vim.='vim .'
+alias oc.='oc .'
