@@ -4,6 +4,9 @@ path = "/home/$USER/.config/opencode"
 [[dirs]]
 path = "/home/$USER/.config/environment.d"
 
+[[dirs]]
+path = "/home/$USER/.pi/agent/prompts"
+
 [[links]]
 source = "apps/bash/home/.bashrc"
 target = "/home/$USER/.bashrc"
@@ -39,6 +42,26 @@ target = "/home/$USER/.agents/skills"
 [[links]]
 source = "agents/skills"
 target = "/home/$USER/.config/opencode/skills"
+
+[[links]]
+source = "agents/community-skills/visual-explainer/prompts/diff-review.md"
+target = "/home/$USER/.pi/agent/prompts/diff-review.md"
+
+[[links]]
+source = "agents/community-skills/visual-explainer/prompts/fact-check.md"
+target = "/home/$USER/.pi/agent/prompts/fact-check.md"
+
+[[links]]
+source = "agents/community-skills/visual-explainer/prompts/generate-web-diagram.md"
+target = "/home/$USER/.pi/agent/prompts/generate-web-diagram.md"
+
+[[links]]
+source = "agents/community-skills/visual-explainer/prompts/plan-review.md"
+target = "/home/$USER/.pi/agent/prompts/plan-review.md"
+
+[[links]]
+source = "agents/community-skills/visual-explainer/prompts/project-recap.md"
+target = "/home/$USER/.pi/agent/prompts/project-recap.md"
 
 [[links]]
 source = "apps/aqua/config/aquaproj-aqua/aqua.yaml"
