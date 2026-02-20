@@ -25,8 +25,12 @@ source = "apps/noctalia/config/noctalia"
 target = "/home/$USER/.config/noctalia"
 
 [[links]]
-source = "apps/opencode/config/opencode/AGENTS.md"
+source = "agents/AGENTS.md"
 target = "/home/$USER/.config/opencode/AGENTS.md"
+
+[[links]]
+source = "agents/AGENTS.md"
+target = "/home/$USER/.pi/agent/AGENTS.md"
 
 [[links]]
 source = "agents/skills"
