@@ -10,10 +10,9 @@ binds {
 
     // ─── Applications ───
     Mod+Return                          hotkey-overlay-title="Open Terminal: Alacritty" { spawn "alacritty"; }
-    Mod+CTRL+Return                     hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Ctrl+Space                          hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-    Mod+B                               hotkey-overlay-title="Open Browser: default profile" { spawn-sh "desktop=$(xdg-settings get default-web-browser 2>/dev/null || true); case \"$desktop\" in com.google.Chrome.canary.desktop) exec google-chrome-canary --profile-directory=Default --new-window ;; google-chrome.desktop|google-chrome-stable.desktop) exec google-chrome-stable --profile-directory=Default --new-window ;; chromium.desktop) exec chromium --profile-directory=Default --new-window ;; firefox.desktop|org.mozilla.firefox.desktop) exec firefox --new-window ;; librewolf.desktop) exec librewolf --new-window ;; *) app=\"${desktop%.desktop}\"; [ -n \"$app\" ] && exec gtk-launch \"$app\"; esac"; }
-    Mod+Shift+B                         hotkey-overlay-title="Open Browser: choose profile" { spawn-sh "desktop=$(xdg-settings get default-web-browser 2>/dev/null || true); case \"$desktop\" in com.google.Chrome.canary.desktop) exec google-chrome-canary --new-window chrome://profile-picker ;; google-chrome.desktop|google-chrome-stable.desktop) exec google-chrome-stable --new-window chrome://profile-picker ;; chromium.desktop) exec chromium --new-window chrome://profile-picker ;; firefox.desktop|org.mozilla.firefox.desktop) exec firefox -P ;; librewolf.desktop) exec librewolf -P ;; *) app=\"${desktop%.desktop}\"; [ -n \"$app\" ] && exec gtk-launch \"$app\"; esac"; }
+    Mod+B                               hotkey-overlay-title="Open Browser: default profile" { spawn-sh "chrome_flags='--enable-features=TouchpadOverscrollHistoryNavigation'; desktop=$(xdg-settings get default-web-browser 2>/dev/null || true); case \"$desktop\" in com.google.Chrome.canary.desktop) exec google-chrome-canary $chrome_flags --profile-directory=Default --new-window ;; google-chrome.desktop|google-chrome-stable.desktop) exec google-chrome-stable $chrome_flags --profile-directory=Default --new-window ;; chromium.desktop) exec chromium $chrome_flags --profile-directory=Default --new-window ;; firefox.desktop|org.mozilla.firefox.desktop) exec firefox --new-window ;; librewolf.desktop) exec librewolf --new-window ;; *) app=\"${desktop%.desktop}\"; [ -n \"$app\" ] && exec gtk-launch \"$app\"; esac"; }
+    Mod+Shift+B                         hotkey-overlay-title="Open Browser: choose profile" { spawn-sh "chrome_flags='--enable-features=TouchpadOverscrollHistoryNavigation'; desktop=$(xdg-settings get default-web-browser 2>/dev/null || true); case \"$desktop\" in com.google.Chrome.canary.desktop) exec google-chrome-canary $chrome_flags --new-window chrome://profile-picker ;; google-chrome.desktop|google-chrome-stable.desktop) exec google-chrome-stable $chrome_flags --new-window chrome://profile-picker ;; chromium.desktop) exec chromium $chrome_flags --new-window chrome://profile-picker ;; firefox.desktop|org.mozilla.firefox.desktop) exec firefox -P ;; librewolf.desktop) exec librewolf -P ;; *) app=\"${desktop%.desktop}\"; [ -n \"$app\" ] && exec gtk-launch \"$app\"; esac"; }
     Mod+ALT+L                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+Shift+Q                        hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
 
@@ -35,7 +34,8 @@ binds {
     XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
 
     // ─── Window Movement and Focus ───
-    Mod+Q                               { close-window; }
+    CTRL+Q                              { close-window; }
+    MOD+Q                               { close-window; }
 
     Mod+Left                            { focus-column-left; }
     Mod+H                               { focus-column-left; }
@@ -120,10 +120,11 @@ binds {
     // ─── Modes ───
     Mod+T                               { toggle-window-floating; }
     Mod+F                               { fullscreen-window; }
-    Mod+W                               { toggle-column-tabbed-display; }
+    // Mod+W                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
     CTRL+Shift+1                        { screenshot; }
+    Mod+Shift+s                         { screenshot; }
     CTRL+Shift+2                        { screenshot-screen; }
     CTRL+Shift+3                        { screenshot-window; }
 

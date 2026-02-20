@@ -2,33 +2,37 @@
 path = "~/.config/opencode"
 
 [[links]]
-source = "bash/.bashrc"
+source = "apps/bash/home/.bashrc"
 target = "~/.bashrc"
 
 [[links]]
-source = "bash/.bash_aliases"
+source = "apps/bash/home/.bash_aliases"
 target = "~/.bash_aliases"
 
 [[links]]
-source = "niri/.config/niri"
+source = "apps/niri/config/niri"
 target = "~/.config/niri"
 
 [[links]]
-source = "nvim/.config/nvim"
+source = "apps/nvim/config/nvim"
 target = "~/.config/nvim"
 
 [[links]]
-source = "noctalia/.config/noctalia"
+source = "apps/noctalia/config/noctalia"
 target = "~/.config/noctalia"
 
 [[links]]
-source = "opencode/.config/opencode/global-AGENTS.md"
+source = "apps/opencode/config/opencode/AGENTS.md"
 target = "~/.config/opencode/AGENTS.md"
 
 [[links]]
-source = "opencode/.config/opencode/skills"
+source = "apps/opencode/config/opencode/skills"
 target = "~/.config/opencode/skills"
 
 [[links]]
-source = "aqua/.config/aquaproj-aqua/aqua.yaml"
+source = "apps/aqua/config/aquaproj-aqua/aqua.yaml"
 target = "~/.config/aquaproj-aqua/aqua.yaml"
+
+[[links]]
+source = "apps/chrome/config/chrome-canary-flags.conf"
+target = "~/.config/chrome-canary-flags.conf"

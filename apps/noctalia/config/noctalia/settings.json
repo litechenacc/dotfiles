@@ -76,7 +76,6 @@
                     "labelMode": "index",
                     "occupiedColor": "secondary",
                     "pillSize": 0.6,
-                    "reverseScroll": false,
                     "showApplications": false,
                     "showBadge": true,
                     "showLabelsOnlyWhenOccupied": true,
@@ -175,13 +174,13 @@
     },
     "colorSchemes": {
         "darkMode": false,
-        "generationMethod": "rainbow",
+        "generationMethod": "monochrome",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Nord",
-        "schedulingMode": "off",
-        "useWallpaperColors": false
+        "predefinedScheme": "Vesper",
+        "schedulingMode": "manual",
+        "useWallpaperColors": true
     },
     "controlCenter": {
         "cards": [
@@ -244,7 +243,7 @@
         }
     },
     "desktopWidgets": {
-        "enabled": true,
+        "enabled": false,
         "gridSnap": true,
         "monitorWidgets": [
             {
@@ -311,7 +310,8 @@
         "colorizeIcons": false,
         "deadOpacity": 0.6,
         "displayMode": "auto_hide",
-        "enabled": true,
+        "dockType": "floating",
+        "enabled": false,
         "floatingRatio": 1,
         "inactiveIndicators": false,
         "monitors": [
@@ -321,13 +321,15 @@
         ],
         "pinnedStatic": false,
         "position": "bottom",
+        "showFrameIndicator": true,
+        "sitOnFrame": false,
         "size": 1
     },
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 1,
+        "animationSpeed": 0.68,
         "autoStartAuth": false,
         "avatarImage": "/home/litechen/.face",
         "boxRadiusRatio": 1,
@@ -338,7 +340,7 @@
         "enableLockScreenCountdown": true,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
-        "iRadiusRatio": 1,
+        "iRadiusRatio": 0.78,
         "keybinds": {
             "keyDown": [
                 "Down"
@@ -352,6 +354,9 @@
             "keyLeft": [
                 "Left"
             ],
+            "keyRemove": [
+                "Del"
+            ],
             "keyRight": [
                 "Right"
             ],
@@ -361,14 +366,15 @@
         },
         "language": "",
         "lockOnSuspend": true,
-        "lockScreenAnimations": false,
+        "lockScreenAnimations": true,
         "lockScreenBlur": 0,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
         ],
         "lockScreenTint": 0,
-        "radiusRatio": 1,
-        "scaleRatio": 1,
+        "radiusRatio": 0.23,
+        "reverseScroll": false,
+        "scaleRatio": 1.05,
         "screenRadiusRatio": 1,
         "shadowDirection": "bottom_right",
         "shadowOffsetX": 2,
@@ -405,10 +411,12 @@
         "weatherShowEffects": true
     },
     "network": {
+        "airplaneModeEnabled": false,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 10000,
         "bluetoothRssiPollingEnabled": false,
+        "disableDiscoverability": false,
         "wifiDetailsViewMode": "grid",
         "wifiEnabled": true
     },
@@ -423,9 +431,12 @@
     },
     "notifications": {
         "backgroundOpacity": 1,
+        "clearDismissed": true,
         "criticalUrgencyDuration": 15,
+        "density": "default",
         "enableBatteryToast": true,
         "enableKeyboardLayoutToast": true,
+        "enableMarkdown": false,
         "enableMediaToast": false,
         "enabled": true,
         "location": "top_right",
@@ -518,31 +529,26 @@
                 "keybind": "6"
             }
         ],
-        "showHeader": true
+        "showHeader": true,
+        "showKeybinds": true
     },
     "settingsVersion": 53,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
         "cpuCriticalThreshold": 90,
-        "cpuPollingInterval": 1000,
         "cpuWarningThreshold": 80,
         "criticalColor": "",
         "diskAvailCriticalThreshold": 10,
         "diskAvailWarningThreshold": 20,
         "diskCriticalThreshold": 90,
-        "diskPollingInterval": 30000,
         "diskWarningThreshold": 80,
         "enableDgpuMonitoring": false,
         "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
         "gpuCriticalThreshold": 90,
-        "gpuPollingInterval": 3000,
         "gpuWarningThreshold": 80,
-        "loadAvgPollingInterval": 3000,
         "memCriticalThreshold": 90,
-        "memPollingInterval": 1000,
         "memWarningThreshold": 80,
-        "networkPollingInterval": 1000,
         "swapCriticalThreshold": 90,
         "swapWarningThreshold": 80,
         "tempCriticalThreshold": 90,
@@ -558,7 +564,7 @@
     "ui": {
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
-        "boxBorderEnabled": false,
+        "boxBorderEnabled": true,
         "fontDefault": "Adwaita Sans",
         "fontDefaultScale": 1,
         "fontFixed": "monospace",
@@ -571,11 +577,128 @@
         "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
-        "automationEnabled": false,
+        "automationEnabled": true,
         "directory": "/home/litechen/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
+            {
+                "colorScheme": "Vesper",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#5e81ac",
+                    "#64adc2",
+                    "#6fa9a8",
+                    "#bf616a"
+                ],
+                "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_15.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "colorScheme": "Vesper",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#5e81ac",
+                    "#64adc2",
+                    "#6fa9a8",
+                    "#bf616a"
+                ],
+                "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_09.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "colorScheme": "Vesper",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#5e81ac",
+                    "#64adc2",
+                    "#6fa9a8",
+                    "#bf616a"
+                ],
+                "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_04.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "colorScheme": "Vesper",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#5e81ac",
+                    "#64adc2",
+                    "#6fa9a8",
+                    "#bf616a"
+                ],
+                "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_06.jpg",
+                "useWallpaperColors": true
+            },
+            {
+                "colorScheme": "Vesper",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#5e81ac",
+                    "#64adc2",
+                    "#6fa9a8",
+                    "#bf616a"
+                ],
+                "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_11.jpg",
+                "useWallpaperColors": false
+            },
+            {
+                "colorScheme": "Vesper",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#5e81ac",
+                    "#64adc2",
+                    "#6fa9a8",
+                    "#bf616a"
+                ],
+                "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_14.jpg",
+                "useWallpaperColors": true
+            },
+            {
+                "colorScheme": "Vesper",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#5e81ac",
+                    "#64adc2",
+                    "#6fa9a8",
+                    "#bf616a"
+                ],
+                "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_07.jpg",
+                "useWallpaperColors": true
+            },
+            {
+                "colorScheme": "Vesper",
+                "darkMode": true,
+                "generationMethod": "rainbow",
+                "paletteColors": [
+                    "#5e81ac",
+                    "#64adc2",
+                    "#6fa9a8",
+                    "#bf616a"
+                ],
+                "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_17.jpg",
+                "useWallpaperColors": true
+            },
+            {
+                "colorScheme": "Vesper",
+                "darkMode": false,
+                "generationMethod": "monochrome",
+                "paletteColors": [
+                    "#000000",
+                    "#5e5e5e",
+                    "#3b3b3b",
+                    "#ba1a1a"
+                ],
+                "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_19.jpg",
+                "useWallpaperColors": true
+            }
         ],
         "fillColor": "#000000",
         "fillMode": "crop",
@@ -586,18 +709,18 @@
         "overviewEnabled": false,
         "overviewTint": 0.6,
         "panelPosition": "follow_bar",
-        "randomIntervalSec": 300,
+        "randomIntervalSec": 1800,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
-        "sortOrder": "name",
+        "sortOrder": "date_desc",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "random",
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "single",
+        "viewMode": "recursive",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
