@@ -15,6 +15,20 @@ This repository stores system setup as symlinks from `$HOME` to files in this di
 - `scripts/link.sh` -> recreate symlinks
 - `scripts/health-check.sh` -> validate current system state against mapping
 
+## Skills layout
+
+- Personal skills (dotfiles-managed): `agents/skills/`
+- Community skills (separate upstream git): `agents/community-skills/<skill-repo>/`
+- Exposure to pi/opencode: create a symlink in `agents/skills/` pointing to `../community-skills/<skill-repo>`
+
+This keeps your own skills versioned in dotfiles while community skills stay in their own git history (via submodules).
+
+After cloning this dotfiles repo on a new machine, fetch community skills with:
+
+```bash
+git submodule update --init --recursive
+```
+
 ## Re-link everything
 
 ```bash
