@@ -29,7 +29,11 @@ source = "apps/opencode/config/opencode/AGENTS.md"
 target = "/home/$USER/.config/opencode/AGENTS.md"
 
 [[links]]
-source = "apps/opencode/config/opencode/skills"
+source = "agents/skills"
+target = "/home/$USER/.agents/skills"
+
+[[links]]
+source = "agents/skills"
 target = "/home/$USER/.config/opencode/skills"
 
 [[links]]
