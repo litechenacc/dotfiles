@@ -11,14 +11,17 @@ Record the current pi session into `~/vault`:
 2) write a Markdown session note in Obsidian style.
 
 ## Core Directives
-1. **Run export script first**: use `~/.agents/skills/note-down/scripts/export-clean-session.sh` (or `scripts/export-clean-session.sh` if already in the skill directory).
+1. **Run export script first**: use `~/.agents/skills/note-down/scripts/export-clean-session.sh`.
 2. **Use cleaned export only**: never export from live session directly.
-3. **Obsidian style**: valid YAML frontmatter + `[[wikilinks]]`.
-4. **English only**: title, summary, decisions, and slug.
+3. **Follow current vault rules**: `notes/`, `projects/`, `resources/`.
+4. **Obsidian style**: valid YAML frontmatter + `[[wikilinks]]`.
+5. **English only**: title, summary, decisions, and slug.
+6. **Timestamp in frontmatter, not filename**: use `timestamp: YYYY-MM-DD-HH-mm`.
 
-## Vault Targets
-- Notes: `~/vault/10_areas/system/`
-- Session HTML: `~/vault/30_resources/sessions/`
+## Vault Targets (Simple Mode)
+- Notes: `~/vault/notes/`
+- Session HTML: `~/vault/resources/assets/sessions/`
+- Base view file: `~/vault/AI-Sessions.base`
 
 ## Execution Procedure
 
@@ -33,13 +36,6 @@ Parse stdout lines:
 - `SESSION_FILE=<jsonl path>`
 - `EXPORT_HTML=<html path>`
 
-> The script automatically:
-> - resolves current session (prefers `/tmp/pi-sessions/$PPID` from `session-tracker` extension),
-> - snapshots JSONL,
-> - trims last user message (note-down trigger) and tail,
-> - exports cleaned HTML,
-> - removes temp files.
-
 ### Step 2: Determine note metadata
 
 Extract from session context:
@@ -48,13 +44,15 @@ Extract from session context:
 - **purpose**: one sentence
 - **title**: descriptive English title
 - **summary / changes / decisions**: concise but complete
+- **date**: `YYYY-MM-DD`
+- **timestamp**: `YYYY-MM-DD-HH-mm` (24h format)
 
 ### Step 3: Write note
 
 Path pattern:
 
 ```text
-~/vault/10_areas/system/{slug}-{YYYY-MM-DD}.md
+~/vault/notes/{slug}.md
 ```
 
 If same filename exists, append `-2`, `-3`, ...
@@ -69,12 +67,13 @@ tags:
   - <tag1>
   - <tag2>
 date: YYYY-MM-DD
+timestamp: YYYY-MM-DD-HH-mm
 purpose: "<one-sentence description>"
 session_id: "<UUID>"
-session_file: "[[30_resources/sessions/<UUID>.html]]"
+session_file: "[[resources/assets/sessions/<UUID>.html]]"
 ---
 
-# <Title> (<YYYY-MM-DD>)
+# <Title>
 
 ## Purpose
 
@@ -96,7 +95,7 @@ session_file: "[[30_resources/sessions/<UUID>.html]]"
 
 ## Appendix
 
-- Full session transcript: [[30_resources/sessions/<UUID>.html]]
+- Full session transcript: [[resources/assets/sessions/<UUID>.html]]
 ```
 
 ### Step 4: Confirm to user

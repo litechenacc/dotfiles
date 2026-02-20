@@ -11,7 +11,7 @@ set -euo pipefail
 
 CWD_SLUG="--$(pwd | tr '/' '-')--"
 SESSION_DIR="$HOME/.pi/agent/sessions/$CWD_SLUG"
-VAULT_SESSIONS_DIR="$HOME/vault/30_resources/sessions"
+VAULT_SESSIONS_DIR="$HOME/vault/resources/assets/sessions"
 TRACKER_FILE="/tmp/pi-sessions/${PPID:-}"
 
 mkdir -p "$VAULT_SESSIONS_DIR"
