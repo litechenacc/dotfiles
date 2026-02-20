@@ -1,38 +1,38 @@
 [[dirs]]
-path = "~/.config/opencode"
+path = "/home/$USER/.config/opencode"
 
 [[links]]
 source = "apps/bash/home/.bashrc"
-target = "~/.bashrc"
+target = "/home/$USER/.bashrc"
 
 [[links]]
 source = "apps/bash/home/.bash_aliases"
-target = "~/.bash_aliases"
+target = "/home/$USER/.bash_aliases"
 
 [[links]]
 source = "apps/niri/config/niri"
-target = "~/.config/niri"
+target = "/home/$USER/.config/niri"
 
 [[links]]
 source = "apps/nvim/config/nvim"
-target = "~/.config/nvim"
+target = "/home/$USER/.config/nvim"
 
 [[links]]
 source = "apps/noctalia/config/noctalia"
-target = "~/.config/noctalia"
+target = "/home/$USER/.config/noctalia"
 
 [[links]]
 source = "apps/opencode/config/opencode/AGENTS.md"
-target = "~/.config/opencode/AGENTS.md"
+target = "/home/$USER/.config/opencode/AGENTS.md"
 
 [[links]]
 source = "apps/opencode/config/opencode/skills"
-target = "~/.config/opencode/skills"
+target = "/home/$USER/.config/opencode/skills"
 
 [[links]]
 source = "apps/aqua/config/aquaproj-aqua/aqua.yaml"
-target = "~/.config/aquaproj-aqua/aqua.yaml"
+target = "/home/$USER/.config/aquaproj-aqua/aqua.yaml"
 
 [[links]]
 source = "apps/chrome/config/chrome-canary-flags.conf"
-target = "~/.config/chrome-canary-flags.conf"
+target = "/home/$USER/.config/chrome-canary-flags.conf"
