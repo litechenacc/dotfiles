@@ -174,13 +174,13 @@
     },
     "colorSchemes": {
         "darkMode": false,
-        "generationMethod": "monochrome",
+        "generationMethod": "rainbow",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
-        "predefinedScheme": "Cherry Blossom",
+        "predefinedScheme": "Vesper",
         "schedulingMode": "manual",
-        "useWallpaperColors": false
+        "useWallpaperColors": true
     },
     "controlCenter": {
         "cards": [
@@ -431,12 +431,12 @@
     },
     "notifications": {
         "backgroundOpacity": 1,
-        "clearDismissed": true,
+        "clearDismissed": false,
         "criticalUrgencyDuration": 15,
         "density": "default",
         "enableBatteryToast": true,
         "enableKeyboardLayoutToast": true,
-        "enableMarkdown": false,
+        "enableMarkdown": true,
         "enableMediaToast": false,
         "enabled": true,
         "location": "top_right",
@@ -569,6 +569,14 @@
             {
                 "enabled": true,
                 "id": "ghostty"
+            },
+            {
+                "enabled": true,
+                "id": "code"
+            },
+            {
+                "enabled": true,
+                "id": "yazi"
             }
         ],
         "enableUserTheming": false
@@ -638,10 +646,10 @@
                 "darkMode": true,
                 "generationMethod": "rainbow",
                 "paletteColors": [
-                    "#5e81ac",
-                    "#64adc2",
-                    "#6fa9a8",
-                    "#bf616a"
+                    "#afd36d",
+                    "#c1caab",
+                    "#a0d0c9",
+                    "#ffb4ab"
                 ],
                 "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_06.jpg",
                 "useWallpaperColors": true
@@ -674,13 +682,13 @@
             },
             {
                 "colorScheme": "Vesper",
-                "darkMode": true,
+                "darkMode": false,
                 "generationMethod": "rainbow",
                 "paletteColors": [
-                    "#5e81ac",
-                    "#64adc2",
-                    "#6fa9a8",
-                    "#bf616a"
+                    "#0062a0",
+                    "#526070",
+                    "#6a5779",
+                    "#ba1a1a"
                 ],
                 "path": "/home/litechen/Pictures/Wallpapers/landscape_4k_07.jpg",
                 "useWallpaperColors": true
