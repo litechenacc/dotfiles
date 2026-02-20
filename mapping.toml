@@ -1,6 +1,9 @@
 [[dirs]]
 path = "/home/$USER/.config/opencode"
 
+[[dirs]]
+path = "/home/$USER/.config/environment.d"
+
 [[links]]
 source = "apps/bash/home/.bashrc"
 target = "/home/$USER/.bashrc"
@@ -32,6 +35,10 @@ target = "/home/$USER/.config/opencode/skills"
 [[links]]
 source = "apps/aqua/config/aquaproj-aqua/aqua.yaml"
 target = "/home/$USER/.config/aquaproj-aqua/aqua.yaml"
+
+[[links]]
+source = "apps/environment/config/environment.d/im.conf"
+target = "/home/$USER/.config/environment.d/im.conf"
 
 [[links]]
 source = "apps/chrome/config/chrome-canary-flags.conf"
