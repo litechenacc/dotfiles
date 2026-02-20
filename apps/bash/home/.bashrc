@@ -9,6 +9,10 @@ alias grep='grep --color=auto'
 
 export PATH="$HOME/.local/bin:$HOME/.opencode/bin:$PATH"
 
+if [[ -f "$HOME/.local/dotfiles/bash/bun.sh" ]]; then
+    source "$HOME/.local/dotfiles/bash/bun.sh"
+fi
+
 export AQUA_GLOBAL_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml"
 if command -v aqua >/dev/null 2>&1; then
     export PATH="$(aqua root-dir)/bin:$PATH"
