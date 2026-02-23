@@ -82,32 +82,6 @@ print_link_stats() {
     echo "  links unchanged: $LINK_UNCHANGED"
 }
 
-ensure_aqua() {
-    if command -v aqua >/dev/null 2>&1; then
-        return
-    fi
-
-    if ! command -v curl >/dev/null 2>&1; then
-        echo "aqua is missing and curl is required to install it" >&2
-        return 1
-    fi
-
-    mkdir -p "$HOME/.local/bin"
-
-    local installer
-    installer="$(mktemp)"
-    curl -fsSL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.1/aqua-installer -o "$installer"
-    bash "$installer" -y -b "$HOME/.local/bin"
-    rm -f "$installer"
-
-    export PATH="$HOME/.local/bin:$PATH"
-}
-
-install_aqua_packages() {
-    export AQUA_GLOBAL_CONFIG="$HOME/.config/aquaproj-aqua/aqua.yaml"
-    aqua i -a
-}
-
 link_item() {
     local src="$1"
     local dst="$2"
@@ -198,8 +172,6 @@ PY
 
 apply_mapping
 
-ensure_aqua
-install_aqua_packages
 print_link_stats
 
 echo "Dotfiles symlinked from $DOTFILES_DIR"

@@ -9,14 +9,8 @@ alias grep='grep --color=auto'
 
 export PATH="$HOME/.local/bin:$HOME/.opencode/bin:$PATH"
 
-if [[ -f "$HOME/.local/dotfiles/bash/bun.sh" ]]; then
-    source "$HOME/.local/dotfiles/bash/bun.sh"
-fi
-
-export AQUA_GLOBAL_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/aquaproj-aqua/aqua.yaml"
-if command -v aqua >/dev/null 2>&1; then
-    export PATH="$(aqua root-dir)/bin:$PATH"
-fi
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
 
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     source /usr/share/bash-completion/bash_completion
@@ -36,19 +30,6 @@ if command -v rg >/dev/null 2>&1; then
     source <(rg --generate complete-bash)
 fi
 
-if command -v aqua >/dev/null 2>&1; then
-    yazi_bin="$(aqua which yazi 2>/dev/null)"
-    if [[ -n "$yazi_bin" ]]; then
-        yazi_completion_dir="$(dirname "$yazi_bin")/completions"
-        if [[ -f "$yazi_completion_dir/yazi.bash" ]]; then
-            source "$yazi_completion_dir/yazi.bash"
-        fi
-        if [[ -f "$yazi_completion_dir/ya.bash" ]]; then
-            source "$yazi_completion_dir/ya.bash"
-        fi
-    fi
-fi
-
 if [[ -f "$HOME/.bash_aliases" ]]; then
     source "$HOME/.bash_aliases"
 fi
@@ -58,3 +39,4 @@ PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+

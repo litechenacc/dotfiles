@@ -63,9 +63,7 @@ target = "/home/$USER/.pi/agent/prompts/plan-review.md"
 source = "agents/community-skills/visual-explainer/prompts/project-recap.md"
 target = "/home/$USER/.pi/agent/prompts/project-recap.md"
 
-[[links]]
-source = "apps/aqua/config/aquaproj-aqua/aqua.yaml"
-target = "/home/$USER/.config/aquaproj-aqua/aqua.yaml"
+
 
 [[links]]
 source = "apps/environment/config/environment.d/im.conf"

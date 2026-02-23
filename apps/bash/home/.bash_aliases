@@ -13,3 +13,7 @@ alias nvim.='nvim .'
 alias vim.='vim .'
 alias oc.='oc .'
 alias setup='cd ~/.local/dotfiles/'
+# Use pnpm as default package manager. To run the real npm:
+#   \npm <command>       — backslash bypasses alias
+#   command npm <command> — also bypasses alias
+alias npm='pnpm'
