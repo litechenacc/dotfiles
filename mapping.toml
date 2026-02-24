@@ -16,16 +16,12 @@ source = "apps/bash/home/.bash_aliases"
 target = "/home/$USER/.bash_aliases"
 
 [[links]]
-source = "apps/niri/config/niri"
-target = "/home/$USER/.config/niri"
-
-[[links]]
-source = "apps/nvim/config/nvim"
+source = "apps/nvim/config"
 target = "/home/$USER/.config/nvim"
 
 [[links]]
-source = "apps/noctalia/config/noctalia"
-target = "/home/$USER/.config/noctalia"
+source = "apps/mise/config/config.toml"
+target = "/home/$USER/.config/mise/config.toml"
 
 [[links]]
 source = "agents/AGENTS.md"

@@ -7,10 +7,37 @@
 
 alias grep='grep --color=auto'
 
-export PATH="$HOME/.local/bin:$HOME/.opencode/bin:$PATH"
+path_prepend() {
+    case ":$PATH:" in
+        *":$1:"*) ;;
+        *) PATH="$1:$PATH" ;;
+    esac
+}
+
+path_cleanup() {
+    local cleaned=""
+    local p
+
+    IFS=':' read -r -a _path_parts <<< "$PATH"
+    for p in "${_path_parts[@]}"; do
+        [[ -z "$p" || "$p" == *"/.bun/bin"* ]] && continue
+        case ":$cleaned:" in
+            *":$p:"*) ;;
+            *) cleaned="${cleaned:+$cleaned:}$p" ;;
+        esac
+    done
+
+    PATH="$cleaned"
+    unset _path_parts p cleaned
+}
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+path_prepend "$HOME/.opencode/bin"
+path_prepend "$HOME/.local/bin"
+path_prepend "$PNPM_HOME"
+
+eval "$(~/.local/bin/mise activate bash)"
+path_cleanup
 
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     source /usr/share/bash-completion/bash_completion
@@ -33,8 +60,6 @@ fi
 if [[ -f "$HOME/.bash_aliases" ]]; then
     source "$HOME/.bash_aliases"
 fi
-
-PS1='[\u@\h \W]\$ '
 
 eval "$(starship init bash)"
 
