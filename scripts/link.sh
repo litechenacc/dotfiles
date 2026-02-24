@@ -154,7 +154,7 @@ apply_mapping() {
                 ;;
         esac
     done < <(
-        python - "$MAPPING_FILE" <<'PY'
+        python3 - "$MAPPING_FILE" <<'PY'
 import sys
 import tomllib
 

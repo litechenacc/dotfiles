@@ -121,7 +121,7 @@ run_checks() {
                 ;;
         esac
     done < <(
-        python - "$MAPPING_FILE" <<'PY'
+        python3 - "$MAPPING_FILE" <<'PY'
 import sys
 import tomllib
 
