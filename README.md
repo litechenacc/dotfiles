@@ -7,7 +7,8 @@ This repository stores system setup as symlinks from `$HOME` to files in this di
 - `apps/` -> syncable application configs
 - Pattern: `apps/<app>/<type>/...` (kept flat, no duplicated app-name layer)
 - Examples:
-  - `apps/bash/home/.bashrc` -> `/home/$USER/.bashrc`
+  - `apps/bash/bashrc` -> `/home/$USER/.bashrc`
+  - `apps/bash/bash_aliases` -> `/home/$USER/.bash_aliases`
   - `apps/nvim/config/` -> `/home/$USER/.config/nvim`
   - `apps/mise/config/config.toml` -> `/home/$USER/.config/mise/config.toml`
 - `mapping.toml` -> link source/target mapping used by `scripts/link.sh`

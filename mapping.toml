@@ -8,11 +8,11 @@ path = "/home/$USER/.config/environment.d"
 path = "/home/$USER/.pi/agent/prompts"
 
 [[links]]
-source = "apps/bash/home/.bashrc"
+source = "apps/bash/bashrc"
 target = "/home/$USER/.bashrc"
 
 [[links]]
-source = "apps/bash/home/.bash_aliases"
+source = "apps/bash/bash_aliases"
 target = "/home/$USER/.bash_aliases"
 
 [[links]]
@@ -60,11 +60,3 @@ source = "agents/community-skills/visual-explainer/prompts/project-recap.md"
 target = "/home/$USER/.pi/agent/prompts/project-recap.md"
 
 
-
-[[links]]
-source = "apps/environment/config/environment.d/im.conf"
-target = "/home/$USER/.config/environment.d/im.conf"
-
-[[links]]
-source = "apps/chrome/config/chrome-canary-flags.conf"
-target = "/home/$USER/.config/chrome-canary-flags.conf"
