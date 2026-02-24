@@ -27,6 +27,36 @@ After cloning this dotfiles repo on a new machine, fetch community skills with:
 git submodule update --init --recursive
 ```
 
+## Bootstrap (full setup)
+
+Run this from the repo root:
+
+```bash
+./scripts/bootstrap.sh
+```
+
+What it does:
+- initializes git submodules
+- applies all symlinks from `mapping.toml`
+- installs `mise` (if missing) and installs tools from `~/.config/mise/config.toml`
+- runs health check
+
+For a fresh machine:
+
+```bash
+git clone <your-dotfiles-repo> ~/.local/dotfiles
+cd ~/.local/dotfiles
+./scripts/bootstrap.sh
+```
+
+## Bootstrap only mise
+
+If you only want `mise` + tool installation:
+
+```bash
+./scripts/bootstrap-mise.sh
+```
+
 ## Re-link everything
 
 ```bash
